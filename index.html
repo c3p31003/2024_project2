@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安全管理システム</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">ロゴ</div>
+        <nav class="menu">
+            <button class="menu-btn active">トップ</button>
+            <button class="menu-btn">検索画面</button>
+            <button class="menu-btn">事故カテゴリ</button>
+            <button class="menu-btn">ヒヤリハット一覧</button>
+            <button class="menu-btn">ワードクラウド画面</button>
+        </nav>
+        <div class="user-info" id="userInfo">ユーザー</div> <!-- ここに名前が入る -->
+    </header>
+
+    <main>
+        <section class="card-container">
+            <div class="card">
+                <h2>検索画面</h2>
+                <p>工事の種類や重機名を入力することで事故事例を検索できます</p>
+                <a href="#">></a>
+            </div>
+            <div class="card">
+                <h2>事故カテゴリ</h2>
+                <p>事故のカテゴリ一覧を表示します</p>
+                <a href="Accident Category/index.html">></a>
+            </div>
+            <div class="card">
+                <h2>ヒヤリハット一覧</h2>
+                <p>ヒヤリハットの一覧を表示します</p>
+                <a href="#">></a>
+            </div>
+            <div class="card">
+                <h2>ワードクラウド画面</h2>
+                <p>ワードクラウド画面を表示します</p>
+                <a href="#">></a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>文教大学 情報学部 情報システム学科 プロジェクト演習C</p>
+    </footer>
+
+    <script>
+        // ローカルストレージから名前を取得して表示
+        const username = localStorage.getItem('username');
+        if (username) {
+            document.getElementById('userInfo').textContent = username;
+        } else {
+            document.getElementById('userInfo').textContent = 'ゲスト';
+        }
+    </script>
+</body>
+</html>
