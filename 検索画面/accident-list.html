@@ -60,7 +60,7 @@
         <main class="container my-5">
             <h2 class="text-center mb-4">事故一覧</h2>
             <p class="text-center">事故一覧を表示します</p>
-       
+
             <table class="table table-bordered text-center">
                 <thead class="table-light">
                     <tr>
@@ -119,13 +119,24 @@
                     <!-- 追加の記録をここに記載 -->
                 </tbody>
             </table>
-       
             <div class="text-center">
                 <button class="btn btn-secondary">検索</button>
             </div>
         </main>
 
     </main>
+
+    <script>
+        function updateTable(categoryIndex) {
+            const selectElement = document.getElementById(`category${categoryIndex}`);
+            const selectedValue = selectElement.value;
+            const tdElement = document.getElementById(`td${categoryIndex}`);
+            
+            // Update the corresponding table cell with the selected value
+            tdElement.textContent = selectedValue;
+        }
+    </script>
+
 
     <footer>
     文教大学 情報学部 情報システム学科 プロジェクト演習BC
