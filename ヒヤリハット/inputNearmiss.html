@@ -57,6 +57,23 @@
     </header>
     <main>
         ヒヤリハット入力画面
+        <main class="container my-5">
+            <h2 class="text-center mb-4">ヒヤリハット入力画面</h2>
+            <form action="#" method="post" class="input-form">
+                <div class="mb-3">
+                    <label for="incidentTitle" class="form-label">タイトル</label>
+                    <input type="text" class="form-control" id="incidentTitle" placeholder="例: 工事現場での転倒">
+                </div>
+                <div class="mb-3">
+                    <label for="incidentDetails" class="form-label">詳細</label>
+                    <textarea class="form-control" id="incidentDetails" rows="5" placeholder="ヒヤリハットの詳細を入力してください"></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">登録</button>
+                </div>
+            </form>
+        </main>
+        
     </main>
 
     <footer>
