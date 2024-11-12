@@ -57,17 +57,74 @@
     </header>
     <main>
         事故一覧
-        <main class="container">
-            <div class="category-title">事故カテゴリ</div>
-            <div class="category-grid">
-                <a href="page1.html" class="category-box">① 根伐り<br>砕石</a>
-                <a href="page2.html" class="category-box">② 配筋</a>
-                <a href="page3.html" class="category-box">③ 外周<br>基礎内部の型枠</a>
-                <a href="page4.html" class="category-box">④ 生コンクリート打設</a>
-                <a href="page5.html" class="category-box">⑤ 養生、型枠バラシ<br>埋め戻し</a>
-                <a href="page6.html" class="category-box">⑥ 土間うち</a>
+        <main class="container my-5">
+            <h2 class="text-center mb-4">事故一覧</h2>
+            <p class="text-center">事故一覧を表示します</p>
+       
+            <table class="table table-bordered text-center">
+                <thead class="table-light">
+                    <tr>
+                        <th>
+                            カテゴリ
+                            <select id="category1" class="form-select d-inline-block w-auto" onchange="updateTable(1)">
+                                <option>選択してください</option>
+                                <option>カテゴリ1</option>
+                                <option>カテゴリ2</option>
+                            </select>
+                        </th>
+                        <th>
+                            カテゴリ
+                            <select id="category2" class="form-select d-inline-block w-auto" onchange="updateTable(2)">
+                                <option>選択してください</option>
+                                <option>カテゴリ1</option>
+                                <option>カテゴリ2</option>
+                            </select>
+                        </th>
+                        <th>
+                            カテゴリ
+                            <select id="category3" class="form-select d-inline-block w-auto" onchange="updateTable(3)">
+                                <option>選択してください</option>
+                                <option>カテゴリ1</option>
+                                <option>カテゴリ2</option>
+                            </select>
+                        </th>
+                        <th>
+                            カテゴリ
+                            <select id="category4" class="form-select d-inline-block w-auto" onchange="updateTable(4)">
+                                <option>選択してください</option>
+                                <option>カテゴリ1</option>
+                                <option>カテゴリ2</option>
+                            </select>
+                        </th>
+                        <th>
+                            カテゴリ
+                            <select id="category5" class="form-select d-inline-block w-auto" onchange="updateTable(5)">
+                                <option>選択してください</option>
+                                <option>カテゴリ1</option>
+                                <option>カテゴリ2</option>
+                            </select>
+                        </th>
+                        <th>詳細</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="td1">2024/11/01</td>
+                        <td id="td2">2024/11/02</td>
+                        <td id="td3">山田</td>
+                        <td id="td4">田中</td>
+                        <td id="td5">カテゴリ1</td>
+                        <td><button class="btn btn-info btn-sm">詳細</button></td>
+                    </tr>
+                    <!-- 追加の記録をここに記載 -->
+                </tbody>
+            </table>
+       
+            <div class="text-center">
+                <button class="btn btn-secondary">検索</button>
             </div>
         </main>
+
     </main>
 
     <footer>
