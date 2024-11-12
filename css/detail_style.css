@@ -30,23 +30,3 @@
     bottom: 0;
     width: 100%;
   }
-    /* Custom styles for the main section */
-    .category-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        text-align: center;
-        margin: 20px;
-    }
-    .category-box {
-        padding: 20px;
-        border: 2px solid red;
-        border-radius: 5px;
-    }
-    .category-title {
-        font-weight: bold;
-        font-size: 1.2em;
-        color: green;
-        margin-bottom: 20px;
-        text-align: center;
-    }
