@@ -57,6 +57,46 @@
     </header>
     <main>
         ヒヤリハット一覧
+        <main class="container my-5">
+            <h2 class="text-center mb-4">ヒヤリハット一覧</h2>
+            <p class="text-center">ヒヤリハットの一覧を表示します</p>
+        
+            <table class="table table-bordered text-center">
+                <thead class="table-light">
+                    <tr>
+                        <th>記録日時</th>
+                        <th>発生日</th>
+                        <th>記録者</th>
+                        <th>対象者</th>
+                        <th>
+                            カテゴリ
+                            <select class="form-select d-inline-block w-auto">
+                                <option>選択してください</option>
+                                <option>カテゴリ1</option>
+                                <option>カテゴリ2</option>
+                            </select>
+                        </th>
+                        <th>詳細</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2024/11/01</td>
+                        <td>2024/11/02</td>
+                        <td>山田</td>
+                        <td>田中</td>
+                        <td>カテゴリ1</td>
+                        <td><button class="btn btn-info btn-sm">詳細</button></td>
+                    </tr>
+                    <!-- 追加の記録をここに記載 -->
+                </tbody>
+            </table>
+        
+            <div class="text-center">
+                <button class="btn btn-secondary">もっと見る</button>
+            </div>
+        </main>
+        
         
     </main>
 

@@ -50,3 +50,36 @@
     margin-bottom: 20px;
     text-align: center;
 }
+/* テーブルのスタイル */
+.table {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+}
+
+.table th {
+  background-color: #e6ffe6;
+  font-weight: bold;
+}
+
+.table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* ボタンスタイル */
+.btn-info {
+  color: #fff;
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+}
+
+.btn-secondary {
+  margin-top: 15px;
+  padding: 10px 30px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
