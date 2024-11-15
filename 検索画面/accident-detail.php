@@ -45,6 +45,7 @@ $result = $conn->query($sql);
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="accident-list.html">事故一覧</a></li>
+                                <li><a class="dropdown-item" href="../検索画面/accident-input.html">事故入力画面
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
