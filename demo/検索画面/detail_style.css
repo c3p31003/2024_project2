@@ -1,0 +1,33 @@
+/* 全体 */
+
+/* ヘッダー */
+#header-fixed {
+    background-color: #94D774;
+  }
+  
+  .my-nav-item {
+    background-color: #fff;
+    border: none;
+    margin:7px 10px 7px 60px;
+    padding:13px 80px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #176219;
+  }
+  .nav-img{
+    width:30px;
+  }
+  #Navbar{
+    margin:0 50px;
+  
+  }
+    
+  /* メイン */
+  
+  /* フッター */
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  

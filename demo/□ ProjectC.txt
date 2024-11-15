@@ -1,0 +1,13 @@
+□ ProjectC
+├□ ヒヤリハット
+│├○ inputNearmiss.html
+│└○ Nearmisslist.html
+│　└○ 
+├□ ワードクラウド
+│└○ word-cloud.html
+├□ 検索画面
+│├○ accident-detail.php
+│├○ accident-list.html
+│└○ accident-search.html
+└○ top.html
+　└○ 
