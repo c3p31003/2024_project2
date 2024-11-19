@@ -1,20 +1,3 @@
-<?php
-require 'db.php';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-    try {
-        $dbh = getDbConnection();
-        $stmt = $dbh->prepare('INSERT INTO users (email, password) VALUES (?, ?)');
-        $stmt->execute([$email, $password]);
-        echo 'ユーザー登録が完了しました';
-    } catch (PDOException $e) {
-        echo 'データベースエラー: ' . $e->getMessage();
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -24,13 +7,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <title>新規ユーザー登録</title>
 </head>
 <body>
+  <?php
+  require 'db.php';
+
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+      $username = $_POST['username'];
+      $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+      try {
+          $dbh = getDbConnection();
+
+          // ユーザー名の重複をチェック
+          $stmt = $dbh->prepare('SELECT COUNT(*) FROM users WHERE username = ?');
+          $stmt->execute([$username]);
+          $count = $stmt->fetchColumn();
+
+          if ($count > 0) {
+              echo '<div class="error">このユーザー名は既に使用されています。</div>';
+          } else {
+              // ユーザー名が重複していない場合に登録
+              $stmt = $dbh->prepare('INSERT INTO users (username, password) VALUES (?, ?)');
+              $stmt->execute([$username, $password]);
+              echo '<div class="success">ユーザー登録が成功しました！</div>';
+          }
+      } catch (PDOException $e) {
+          echo '<div class="error">データベースエラーが発生しました: ' . $e->getMessage() . '</div>';
+      }
+  }
+  ?>
   <h1>新規ユーザー登録</h1>
   <form action="" method="post">
-    <label for=""><span>メールアドレス</span>
-      <input type="email" name="email" id=""><br>
+    <label for=""><span>ユーザー名</span>
+      <input type="text" name="username" id="" required><br>
     </label>
     <label for=""><span>パスワード</span>
-      <input type="password" name="password" id=""><br>
+      <input type="password" name="password" id="" required><br>
     </label>
     <input type="submit" value="登録">
   </form>
