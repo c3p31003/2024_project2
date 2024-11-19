@@ -1,0 +1,103 @@
+/* 全体 */
+
+/* ヘッダー */
+#header-fixed {
+  background-color: #94D774;
+}
+
+.my-nav-item {
+  background-color: #fff;
+  border: none;
+  margin: 7px 10px 7px 60px;
+  padding: 13px 80px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #176219;
+}
+
+.nav-img {
+  width: 30px;
+}
+
+#Navbar {
+  margin: 0 50px;
+}
+
+/* メイン */
+.container {
+  padding-top: 20px;
+}
+
+h2 {
+  color: #176219;
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #176219;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+.table {
+  margin-top: 20px;
+}
+
+.table thead {
+  background-color: #94D774;
+  color: #fff;
+}
+
+.table th,
+.table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table th {
+  padding: 10px;
+}
+
+.table td {
+  padding: 8px;
+}
+
+.table-btn {
+  background-color: #176219;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.table-btn:hover {
+  background-color: #145c17;
+}
+
+/* もっと見るボタン */
+.load-more-btn {
+  background-color: #94D774;
+  color: #fff;
+  font-size: 1.1em;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.load-more-btn:hover {
+  background-color: #82c563;
+}
+
+/* フッター */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f8f9fa;
+  padding: 10px 0;
+  color: #176219;
+  font-size: 0.9em;
+}

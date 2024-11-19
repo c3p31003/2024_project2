@@ -1,0 +1,55 @@
+/* 全体 */
+
+/* ヘッダー */
+#header-fixed {
+    background-color: #94D774;
+  }
+  
+  .my-nav-item {
+    background-color: #fff;
+    border: none;
+    margin:7px 10px 7px 60px;
+    padding:13px 80px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #176219;
+  }
+  .nav-img{
+    width:30px;
+  }
+  #Navbar{
+    margin:0 50px;
+  
+  }
+    
+  /* メイン */
+  
+  /* フッター */
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+    /* 入力フォームの全体スタイル */
+.input-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+/* 登録ボタンのスタイル */
+.input-form .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  padding: 10px 30px;
+  font-size: 16px;
+  border-radius: 20px;
+}
+
+.input-form .btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}

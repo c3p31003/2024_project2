@@ -1,0 +1,85 @@
+/* 全体 */
+
+/* ヘッダー */
+#header-fixed {
+    background-color: #94D774;
+  }
+  
+  .my-nav-item {
+    background-color: #fff;
+    border: none;
+    margin:7px 10px 7px 60px;
+    padding:13px 80px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #176219;
+  }
+  .nav-img{
+    width:30px;
+  }
+  #Navbar{
+    margin:0 50px;
+  
+  }
+    
+  /* メイン */
+  
+  /* フッター */
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+/* Custom styles for the main section */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    text-align: center;
+    margin: 20px;
+}
+.category-box {
+    padding: 20px;
+    border: 2px solid red;
+    border-radius: 5px;
+}
+.category-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: green;
+    margin-bottom: 20px;
+    text-align: center;
+}
+/* テーブルのスタイル */
+.table {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+}
+
+.table th, .table td {
+  vertical-align: middle;
+}
+
+.table th {
+  background-color: #e6ffe6;
+  font-weight: bold;
+}
+
+.table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* ボタンスタイル */
+.btn-info {
+  color: #fff;
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+}
+
+.btn-secondary {
+  margin-top: 15px;
+  padding: 10px 30px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+

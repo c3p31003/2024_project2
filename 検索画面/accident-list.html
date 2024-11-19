@@ -62,71 +62,68 @@
             <h2 class="text-center mb-4">事故一覧</h2>
             <p class="text-center">事故一覧を表示します</p>
 
-            <table class="table table-bordered text-center">
-                <thead class="table-light">
-                    <tr>
-                        <th>
-                            カテゴリ
-                            <select id="category1" class="form-select d-inline-block w-auto" onchange="updateTable(1)">
-                                <option>選択してください</option>
-                                <option>カテゴリ1</option>
-                                <option>カテゴリ2</option>
-                            </select>
-                        </th>
-                        <th>
-                            カテゴリ
-                            <select id="category2" class="form-select d-inline-block w-auto" onchange="updateTable(2)">
-                                <option>選択してください</option>
-                                <option>カテゴリ1</option>
-                                <option>カテゴリ2</option>
-                            </select>
-                        </th>
-                        <th>
-                            カテゴリ
-                            <select id="category3" class="form-select d-inline-block w-auto" onchange="updateTable(3)">
-                                <option>選択してください</option>
-                                <option>カテゴリ1</option>
-                                <option>カテゴリ2</option>
-                            </select>
-                        </th>
-                        <th>
-                            カテゴリ
-                            <select id="category4" class="form-select d-inline-block w-auto" onchange="updateTable(4)">
-                                <option>選択してください</option>
-                                <option>カテゴリ1</option>
-                                <option>カテゴリ2</option>
-                            </select>
-                        </th>
-                        <th>
-                            カテゴリ
-                            <select id="category5" class="form-select d-inline-block w-auto" onchange="updateTable(5)">
-                                <option>選択してください</option>
-                                <option>カテゴリ1</option>
-                                <option>カテゴリ2</option>
-                            </select>
-                        </th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td id="td1">2024/11/01</td>
-                        <td id="td2">2024/11/02</td>
-                        <td id="td3">山田</td>
-                        <td id="td4">田中</td>
-                        <td id="td5">カテゴリ1</td>
-                        
-                    </tr>
-                    <!-- 追加の記録をここに記載 -->
-                </tbody>
-            </table>
-            <div class="text-center">
-                <button class="btn btn-secondary">検索</button>
-            </div>
-        </main>
+            <form method="GET" action="accident-detail.php">
+                <table class="table table-bordered text-center">
+                    <thead class="table-light">
+                        <tr>
+                            <th>
+                                工事分野
+                                <select name="category1" id="category1" class="form-select d-inline-block w-auto">
+                                    <option value="">選択してください</option>
+                                    <option value="道路">道路</option>
+                                    <option value="河川">河川</option>
+                                    <option value="砂防・地滑り">砂防・地滑り</option>
+                                    <option value="建築">建築</option>
+                                    <option value="その他">その他</option>
+                                </select>
+                            </th>
+                            <th>
+                                工事の種類
+                                <select name="category2" id="category2" class="form-select d-inline-block w-auto">
+                                    <option value="">選択してください</option>
+                                    <option value="土木一式">土木一式</option>
+                                    <option value="維持修繕">維持修繕</option>
+                                    <option value="とび・土工・コンクリート">とび・土工・コンクリート</option>
+                                    <option value="建築一式">建築一式</option>
+                                    <option value="その他">その他</option>
+                                </select>
+                            </th>
+                            <th>
+                                災害分類
+                                <select name="category3" id="category3" class="form-select d-inline-block w-auto">
+                                    <option value="">選択してください</option>
+                                    <option value="労働災害">労働災害</option>
+                                    <option value="第三者災害">第三者災害</option>
+                                    <option value="その他">その他</option>
+                                </select>
+                            </th>
+                            <th>
+                                事故分類
+                                <select name="category4" id="category4" class="form-select d-inline-block w-auto">
+                                    <option value="">選択してください</option>
+                                    <option value="建設機械等の転倒、下敷、接触、衝突等">建設機械等</option>
+                                    <option value="自動車の転倒、下敷、接触、衝突等">自動車</option>
+                                    <option value="その他">その他</option>
+                                </select>
+                            </th>
+                        </tr>
+                    </thead>
+                    <!-- <tbody>
+                        <tr>
+                            <td colspan="4">カテゴリを選択してください</td>
+                        </tr>
+                    </tbody> -->
+                </table>
+                <!-- 検索ボタン -->
+                <div class="text-center">
+                    <button type="submit" class="btn btn-secondary">検索</button>
+                </div>
+            </form>
+            
+    
 
     </main>
-
+<!-- 
     <script>
         function updateTable(categoryIndex) {
             const selectElement = document.getElementById(`category${categoryIndex}`);
@@ -136,7 +133,7 @@
             // Update the corresponding table cell with the selected value
             tdElement.textContent = selectedValue;
         }
-    </script>
+    </script> -->
 
 
     <footer>
