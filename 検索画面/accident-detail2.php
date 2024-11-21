@@ -1,14 +1,44 @@
+<?php
+// エラー表示設定
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+// データベース接続設定
+$servername = "localhost";
+$username = "proC_test";
+$password = "proC";
+$dbname = "accident";
+
+// データベースに接続
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("データベース接続失敗: " . $conn->connect_error);
+}
+
+// 文字コードの設定
+$conn->set_charset("utf8");
+
+// データを取得
+$sql = "SELECT * FROM oc_accident_data";
+$result = $conn->query($sql);
+
+if ($result === false) {
+    die("SQLエラー: " . $conn->error);
+}
+
+?>
+
+
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/input_style.css">
+    <title>事故データ一覧</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/detail_style.css">
 </head>
 <body>
-    <header id="header-fixed">
+<header id="header-fixed">
         <nav class="navbar navbar-expand-md navbar-dark ">
             <div class="container-lg">
                 <a class="my-navbar-brand navbar-brand" href="../top.html">安全管理システム</a>
@@ -27,10 +57,10 @@
                                 <img class="nav-img" src="../icon/検索画面icon.png" alt="">
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="../検索画面/accident-list.html">他社事故一覧</li>
-                                <li><a class="dropdown-item" href="../検索画面/accident-input.html">事故入力画面
+                                <li><a class="dropdown-item" href="accident-list.html">他社事故一覧</li>
+                                <li><a class="dropdown-item" href="accident-input.html">事故入力画面
                                 </a></li>
-                                <li><a class="dropdown-item" href="../検索画面/accident-detail2.php">自社事故一覧</li>
+                                <li><a class="dropdown-item" href="accident-detail2.php">自社事故一覧</li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -38,8 +68,8 @@
                                 <img class="nav-img" src="../icon/カテゴリ.png" alt="">
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="inputNearmiss.html">ヒヤリハット入力画面</a></li>
-                                <li><a class="dropdown-item" href="Nearmisslist.html">ヒヤリハット一覧</a></li>
+                                <li><a class="dropdown-item" href="../ヒヤリハット/inputNearmiss.html">ヒヤリハット入力画面</a></li>
+                                <li><a class="dropdown-item" href="../ヒヤリハット/Nearmisslist.html">ヒヤリハット一覧</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -47,42 +77,40 @@
                                 <img class="nav-img" src="../icon/ワードクラウド画面.png" alt="">
                             </a>
                         </li>
-                        <li class="nav-bottom">
-                            <a href="" onclick="return confirm('ログアウトしてもよろしいですか？');" style="display: inline-block; margin:20px 10px ; padding: 10px 20px; background-color: #ff6347; color: white; text-decoration: none; border-radius: 5px;">
-                                ログアウト
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <main>
-        ヒヤリハット入力画面
-        <main class="container my-5">
-            <h2 class="text-center mb-4">ヒヤリハット入力画面</h2>
-            <form action="#" method="post" class="input-form">
-                <div class="mb-3">
-                    <label for="incidentTitle" class="form-label">タイトル</label>
-                    <input type="text" class="form-control" id="incidentTitle" placeholder="例: 工事現場での転倒">
-                </div>
-                <div class="mb-3">
-                    <label for="incidentDetails" class="form-label">詳細</label>
-                    <textarea class="form-control" id="incidentDetails" rows="5" placeholder="ヒヤリハットの詳細を入力してください"></textarea>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary">登録</button>
-                </div>
-            </form>
-        </main>
-        
+    <main class="container mt-5">
+        <h2 class="text-center mb-4">事故データ一覧</h2>
+        <table class="table table-bordered table-striped">
+            <colgroup>
+                <col style="width: 30%;">
+                <col style="width: 70%;">
+            </colgroup>
+            <tr>
+                <th>タイトル</th>
+                <th>詳細</th>
+            </tr>
+            <?php
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . htmlspecialchars($row['タイトル'], ENT_QUOTES, 'UTF-8') . "</td>";
+                    echo "<td>" . htmlspecialchars($row['詳細'], ENT_QUOTES, 'UTF-8') . "</td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='2'>データがありません</td></tr>";
+            }
+            ?>
+        </table>
     </main>
-
-    <footer>
-    文教大学 情報学部 情報システム学科 プロジェクト演習BC
-    <p>Copyright &copy; 2024,Team F,All rights reserved.</p>
-    </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>
+<?php
+// データベース接続を閉じる
+$conn->close();
+?>

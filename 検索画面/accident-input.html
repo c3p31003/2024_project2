@@ -23,13 +23,14 @@
                             </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a href="../accident-search.html" class="my-nav-item nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">検索画面    
+                            <a href="検索画面/accident-search.html" class="my-nav-item nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">検索画面    
                                 <img class="nav-img" src="../icon/検索画面icon.png" alt="">
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="../検索画面/accident-list.html">事故一覧
-                                <li><a class="dropdown-item" href="../検索画面/accident-input.html">事故入力画面
+                                <li><a class="dropdown-item" href="accident-list.html">他社事故一覧</li>
+                                <li><a class="dropdown-item" href="accident-input.html">事故入力画面
                                 </a></li>
+                                <li><a class="dropdown-item" href="accident-detail2.php">自社事故一覧</li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -56,26 +57,25 @@
             </div>
         </nav>
     </header>
-    <main>
-        事故入力画面
-        <main class="container my-5">
-            <h2 class="text-center mb-4">事故入力画面</h2>
-            <form action="#" method="post" class="input-form">
-                <div class="mb-3">
-                    <label for="incidentTitle" class="form-label">タイトル</label>
-                    <input type="text" class="form-control" id="incidentTitle" placeholder="例: 工事現場での転倒">
-                </div>
-                <div class="mb-3">
-                    <label for="incidentDetails" class="form-label">詳細</label>
-                    <textarea class="form-control" id="incidentDetails" rows="5" placeholder="ヒヤリハットの詳細を入力してください"></textarea>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary">登録</button>
-                </div>
-            </form>
-        </main>
+
+    <main class="container my-5">
+        <h2 class="text-center mb-4">事故入力画面</h2>
+        <form action="insert_incident.php" method="post" class="input-form">
+            <div class="mb-3">
+                <label for="incidentTitle" class="form-label">タイトル</label>
+                <input type="text" class="form-control" id="incidentTitle" name="タイトル" placeholder="例: 工事現場での転倒">
+            </div>
+            <div class="mb-3">
+                <label for="incidentDetails" class="form-label">詳細</label>
+                <textarea class="form-control" id="incidentDetails" name="詳細" rows="5" placeholder="ヒヤリハットの詳細を入力してください"></textarea>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">登録</button>
+            </div>
+        </form>
         
     </main>
+
 
     <footer>
     文教大学 情報学部 情報システム学科 プロジェクト演習BC
