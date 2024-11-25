@@ -8,55 +8,54 @@
     <link rel="stylesheet" href="../css/ProC_style.css">
 </head>
 <body>
-    <header id="header-fixed">
-        <nav class="navbar navbar-expand-md navbar-dark ">
-            <div class="container-lg">
-                <a class="my-navbar-brand navbar-brand" href="../top.html">安全管理システム</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#Navbar" aria-controls="Navbar" aria-expanded="false" aria-label="ProA2023">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="Navbar">
-                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                        <li class="nav-item">
-                            <a class="my-nav-item nav-link" aria-current="page" href="../top.html">トップページ<span class="sr-only"></span>
-                            <img class="nav-img" src="../icon/家.png" alt="">
-                            </a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a href="検索画面/accident-search.html" class="my-nav-item nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">検索画面    
-                                <img class="nav-img" src="../icon/検索画面icon.png" alt="">
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="accident-list.html">他社事故一覧</li>
-                                <li><a class="dropdown-item" href="accident-input.php">事故入力画面
-                                </a></li>
-                                <li><a class="dropdown-item" href="accident-detail2.php">自社事故一覧</li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a href="#" class="my-nav-item nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ヒヤリハット
-                                <img class="nav-img" src="../icon/カテゴリ.png" alt="">
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="../ヒヤリハット/inputNearmiss.html">ヒヤリハット入力画面</a></li>
-                                <li><a class="dropdown-item" href="../ヒヤリハット/Nearmisslist.html">ヒヤリハット一覧</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="my-nav-item nav-link" href="../word-cloud.html">ワードクラウド
-                                <img class="nav-img" src="../icon/ワードクラウド画面.png" alt="">
-                            </a>
-                        </li>
-                        <li class="nav-bottom">
-                            <a href="" onclick="return confirm('ログアウトしてもよろしいですか？');" style="display: inline-block; margin:20px 10px ; padding: 10px 20px; background-color: #ff6347; color: white; text-decoration: none; border-radius: 5px;">
-                                ログアウト
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+<header id="header-fixed">
+    <nav class="navbar navbar-expand-md ">
+        <div class="container-lg">
+            <a class="my-navbar-brand navbar-brand" href="top.php">安全管理システム</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#Navbar" aria-controls="Navbar" aria-expanded="false" aria-label="ProA2023">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="Navbar">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="my-nav-item nav-link" aria-current="page" href="top.php">トップページ<span class="sr-only"></span>
+                        <img class="nav-img" src="../icon/家.png" alt="">
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="検索画面/accident-search.html" class="my-nav-item nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">検索画面
+                            <img class="nav-img" src="../icon/検索画面icon.png" alt="">
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="accident-list.html">他社事故一覧</a></li>
+                            <li><a class="dropdown-item" href="accident-input.php">事故入力画面</a></li>
+                            <li><a class="dropdown-item" href="accident-detail2.php">自社事故一覧</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="my-nav-item nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ヒヤリハット
+                            <img class="nav-img" src="../icon/カテゴリ.png" alt="">
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="inputNearmiss.php">ヒヤリハット入力画面</a></li>
+                            <li><a class="dropdown-item" href="Nearmisslist.php">ヒヤリハット一覧</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="my-nav-item nav-link" href="../word-cloud.html">ワードクラウド
+                            <img class="nav-img" src="../icon/ワードクラウド画面.png" alt="">
+                        </a>
+                    </li>
+                    <li class="nav-bottom">
+                        <a href="logout.php" onclick="return confirm('ログアウトしてもよろしいですか？');" style="display: inline-block; margin:20px 30px; padding: 10px 20px; background-color: #ff6347; color: white; text-decoration: none; border-radius: 5px;">
+                            ログアウト
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+</header>
 
     <main>
         <div class="container my-5">

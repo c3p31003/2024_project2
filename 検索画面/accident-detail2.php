@@ -51,9 +51,9 @@ $result = $conn->query($sql);
                             <img class="nav-img" src="../icon/検索画面icon.png" alt="">
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="../検索画面/accident-list.html">他社事故一覧</a></li>
-                            <li><a class="dropdown-item" href="../検索画面/accident-input.html">事故入力画面</a></li>
-                            <li><a class="dropdown-item" href="../検索画面/accident-detail2.php">自社事故一覧</a></li>
+                            <li><a class="dropdown-item" href="accident-list.html">他社事故一覧</a></li>
+                            <li><a class="dropdown-item" href="accident-input.php">事故入力画面</a></li>
+                            <li><a class="dropdown-item" href="accident-detail2.php">自社事故一覧</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -71,7 +71,7 @@ $result = $conn->query($sql);
                         </a>
                     </li>
                     <li class="nav-bottom">
-                        <a href="logout.php" onclick="return confirm('ログアウトしてもよろしいですか？');" style="display: inline-block; margin:20px 10px; padding: 10px 20px; background-color: #ff6347; color: white; text-decoration: none; border-radius: 5px;">
+                        <a href="logout.php" onclick="return confirm('ログアウトしてもよろしいですか？');" style="display: inline-block; margin:20px 30px; padding: 10px 20px; background-color: #ff6347; color: white; text-decoration: none; border-radius: 5px;">
                             ログアウト
                         </a>
                     </li>
