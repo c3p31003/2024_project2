@@ -2,9 +2,9 @@
 
 /* ヘッダー */
 #header-fixed {
-    background-color: #94D774;
+  background-color: #94D774;
   }
-  
+
   .my-nav-item {
     background-color: #fff;
     border: none;
@@ -19,14 +19,14 @@
   }
   #Navbar{
     margin:0 50px;
-  
+
   }
     
   /* メイン */
-  
-  /* フッター */
+
   footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    position: static; /* デフォルトのフローに従う */
+    bottom: auto; /* 固定を解除 */
+    width: 100%; /* 横幅はそのまま維持 */
+    margin-top: 20px; /* 上部に少しスペースを追加（必要に応じて調整） */
   }
