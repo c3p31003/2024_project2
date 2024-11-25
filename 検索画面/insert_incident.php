@@ -1,44 +1,49 @@
 <?php
-// エラーレポート（デバッグ用）
+session_start();
 ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// データベース接続設定
 $host = "localhost";
 $username = "proC_test";
 $password = "proC";
 $dbname = "accident";
 
-// フォームのデータを取得
-$title = $_POST['タイトル'] ?? null;
-$details = $_POST['詳細'] ?? null;
-
-// データベース接続
 $conn = new mysqli($host, $username, $password, $dbname);
 
-// 接続エラーチェック
 if ($conn->connect_error) {
-    die("データベース接続エラー: " . $conn->connect_error);
+    die("データベース接続失敗: " . $conn->connect_error);
 }
 
-// SQLクエリを準備
-$sql = "INSERT INTO oc_accident_data (タイトル, 詳細) VALUES (?, ?)";
+$conn->set_charset("utf8");
+
+$title = htmlspecialchars($_POST['incidentTitle'] ?? null, ENT_QUOTES, 'UTF-8');
+$recordDate = htmlspecialchars($_POST['recordDate'] ?? null, ENT_QUOTES, 'UTF-8');
+$occurrenceDate = htmlspecialchars($_POST['occurrenceDate'] ?? null, ENT_QUOTES, 'UTF-8');
+$recorderName = htmlspecialchars($_POST['recorderName'] ?? null, ENT_QUOTES, 'UTF-8');
+$targetName = htmlspecialchars($_POST['targetName'] ?? null, ENT_QUOTES, 'UTF-8');
+$details = htmlspecialchars($_POST['incidentDetails'] ?? null, ENT_QUOTES, 'UTF-8');
+
+if (empty($title) || empty($recordDate) || empty($occurrenceDate) || empty($recorderName)) {
+    $_SESSION['message'] = "必須フィールドが入力されていません。";
+    header("Location: accident-input.php");
+    exit();
+}
+
+$sql = "INSERT INTO oc_accident_data (title, record_date, occurrence_date, recorder_name, target_name, details) 
+        VALUES (?, ?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
+$stmt->bind_param("ssssss", $title, $recordDate, $occurrenceDate, $recorderName, $targetName, $details);
 
-// プレースホルダーに値をバインド
-$stmt->bind_param("ss", $title, $details);
-
-// クエリ実行
 if ($stmt->execute()) {
-  header("Location: success.html");
-  exit;
+    $_SESSION['message'] = "データが正常に登録されました。";
 } else {
-  echo "データ登録に失敗しました: " . $conn->error;
+    error_log("SQLエラー: " . $stmt->error);
+    $_SESSION['message'] = "データ登録に失敗しました。管理者にお問い合わせください。";
 }
 
-
-// 接続を閉じる
 $stmt->close();
 $conn->close();
+
+header("Location: accident-input.php");
+exit();
 ?>
