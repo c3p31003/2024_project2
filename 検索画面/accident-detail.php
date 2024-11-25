@@ -177,10 +177,10 @@ $result = $conn->query($sql);
         </div>
     </div>
 
-    <footer class="text-center mt-5">
+    <!-- <footer class="text-center mt-5">
         文教大学 情報学部 情報システム学科 プロジェクト演習BC
         <p>&copy; 2024 Team F, All rights reserved.</p>
-    </footer>
+    </footer> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
