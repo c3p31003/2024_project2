@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>安全管理システム</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/word_style.css">
+</head>
+<body>
+    <header id="header-fixed">
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="container-lg">
+                <a class="my-navbar-brand navbar-brand" href="top.php">安全管理システム</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#Navbar" aria-controls="Navbar" aria-expanded="false" aria-label="ProA2023">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="Navbar">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="my-nav-item nav-link" aria-current="page" href="top.php">トップページ<span class="sr-only"></span>
+                                
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="検索画面/accident-search.html" class="my-nav-item nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">検索画面
+                                
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="検索画面/accident-list.html">事故一覧</a></li>
+                                <li><a class="dropdown-item" href="検索画面/accident-input.html">事故入力画面</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="my-nav-item nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ヒヤリハット
+                                
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="inputNearmiss.php">ヒヤリハット入力画面</a></li>
+                                <li><a class="dropdown-item" href="Nearmisslist.php">ヒヤリハット一覧</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="my-nav-item nav-link" href="word-cloud.html">ワードクラウド
+                                
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a href="logout.php" onclick="return confirm('ログアウトしてもよろしいですか？');" style="display: inline-block; margin: 0 10px; padding: 10px 20px; background-color: #ff6347; color: white; text-decoration: none; border-radius: 5px;">
+                                ログアウト
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container my-5">
+        <h2 class="text-center mb-4">検索画面</h2>
+        <form action="generate_data.php" method="get" class="input-form">
+            <div class="mb-3">
+                <label for="incidentTitle" class="form-label">キーワード</label>
+                <input type="text" class="form-control" id="incidentTitle" name="keyword" placeholder="例: 重機　雨" required>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">検索</button>
+            </div>
+        </form>
+        <div class="text-center mt-4">
+            <form action="generate_report_direct.php" method="post">
+                <button type="submit" class="btn btn-secondary">検索をせずに報告書を作成</button>
+            </form>
+        </div>
+        <div class="mt-5">
+            <?php
+            // 検索結果を表示する部分
+            if (isset($_GET['keyword'])) {
+                include 'generate_data.php';
+            }
+            ?>
+        </div>
+    </main>
+    <footer>
+        文教大学 情報学部 情報システム学科 プロジェクト演習BC
+        <p>Copyright &copy; 2024,Team F,All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
