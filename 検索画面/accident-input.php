@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>事故入力画面</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/accidentinput.css">
+    <link rel="stylesheet" href="../css/ProC_style.css">
 </head>
 <body>
-<header id="header-fixed">
+    <header id="header-fixed">
         <nav class="navbar navbar-expand-md navbar-dark ">
             <div class="container-lg">
                 <a class="my-navbar-brand navbar-brand" href="../top.html">安全管理システム</a>
