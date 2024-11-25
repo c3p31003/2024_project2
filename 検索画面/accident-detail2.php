@@ -85,7 +85,6 @@ $result = $conn->query($sql);
 
     <main class="container my-5">
         <h2 class="text-center mb-4">事故詳細一覧</h2>
-        <p class="text-center">登録された事故の一覧を表示します。</p>
 
         <table class="table table-bordered table-striped text-center">
             <thead class="table-light">
