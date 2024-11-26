@@ -66,7 +66,7 @@ $result = $conn->query($sql);
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="my-nav-item nav-link" href="../word-cloud.html">ワードクラウド
+                        <a class="my-nav-item nav-link" href="../word-cloud.html">安全報告書
                             <img class="nav-img" src="../icon/ワードクラウド画面.png" alt="">
                         </a>
                     </li>
