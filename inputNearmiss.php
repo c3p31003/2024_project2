@@ -11,14 +11,14 @@
     <header id="header-fixed">
         <nav class="navbar navbar-expand-md navbar-dark">
             <div class="container-lg">
-                <a class="my-navbar-brand navbar-brand" href="top.php">安全管理システム</a>
+                <a class="my-navbar-brand navbar-brand" href="top.html">安全管理システム</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#Navbar" aria-controls="Navbar" aria-expanded="false" aria-label="ProA2023">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="Navbar">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="my-nav-item nav-link" aria-current="page" href="top.php">トップページ
+                            <a class="my-nav-item nav-link" aria-current="page" href="top.html">トップページ
                                 <img class="nav-img" src="../icon/家.png" alt="">
                             </a>
                         </li>
@@ -28,7 +28,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="../検索画面/accident-list.html">他社事故一覧</a></li>
-                                <li><a class="dropdown-item" href="../検索画面/accident-input.html">事故入力画面</a></li>
+                                <li><a class="dropdown-item" href="../検索画面/accident-input.php">事故入力画面</a></li>
                                 <li><a class="dropdown-item" href="../検索画面/accident-detail2.php">自社事故一覧</a></li>
                             </ul>
                         </li>
@@ -42,7 +42,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="my-nav-item nav-link" href="../word-cloud.html">安全報告書
+                            <a class="my-nav-item nav-link" href="../report.html">安全報告書
                                 <img class="nav-img" src="../icon/ワードクラウド画面.png" alt="">
                             </a>
                         </li>
