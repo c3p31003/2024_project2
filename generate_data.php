@@ -37,7 +37,7 @@ echo '        }';
 echo '        .search-results form {';
 echo '            margin-top: 20px;';
 echo '        }';
-echo '        .search-results input[type="radio"] {';
+echo '        .search-results input[type="checkbox"] {';
 echo '            margin-right: 10px;';
 echo '        }';
 echo '        .search-results input[type="submit"], .search-results button {';
@@ -85,6 +85,8 @@ if (isset($_GET['keyword'])) {
     // キーワードをスペースで分割
     $keywords = explode(' ', $keyword);
     $whereClauses = array();
+    $wordcloud_data = []; // ワードクラウド用データ
+
     foreach ($keywords as $word) {
         $word = $conn->real_escape_string($word);
         $whereClauses[] = "( `事故に至る経緯と事故の状況` LIKE '%$word%' OR `事故の要因` LIKE '%$word%' OR `事故発生後の対策` LIKE '%$word%' )";
@@ -93,31 +95,36 @@ if (isset($_GET['keyword'])) {
 
     $result = $conn->query($sql);
 
-    // デバッグ情報を表示
     if ($result === FALSE) {
         echo "Error: " . $conn->error;
     } else {
         echo "<p>検索結果数: " . $result->num_rows . "</p>";
+        echo "<form method='POST' action='generate_report.php'>";
+        echo "<h2>報告書に使用したい項目を選択してください</h2>";
         if ($result->num_rows > 0) {
-            echo "<form method='POST' action='generate_report.php'>";
-            echo "<h2>検索結果から一つを選択してください</h2>";
             while ($row = $result->fetch_assoc()) {
                 $id = $row['番号']; // 各データに一意のIDが必要
-                echo "<input type='radio' name='selected_id' value='$id' id='radio_$id'>";
-                echo "<label for='radio_$id'>";
-                echo "<p>事故に至る経緯と事故の状況：  " . $row['事故に至る経緯と事故の状況'] . "</p>";
-                echo "<p>事故の要因：  " . $row['事故の要因'] . "</p>";
-                echo "<p>事故発生後の対策：  " . $row['事故発生後の対策'] . "</p>";
-                echo "</label><br>";
+                echo "<h3>事故 ID: {$id}</h3>";
+                echo "<label><input type='checkbox' name='selected_items[経緯と状況][]' value='{$id}'> 事故に至る経緯と事故の状況: {$row['事故に至る経緯と事故の状況']}</label><br>";
+                echo "<label><input type='checkbox' name='selected_items[要因][]' value='{$id}'> 事故の要因: {$row['事故の要因']}</label><br>";
+                echo "<label><input type='checkbox' name='selected_items[対策][]' value='{$id}'> 事故発生後の対策: {$row['事故発生後の対策']}</label><br><br>";
+                
+                // ワードクラウド用データに追加
+                $wordcloud_data[] = $row['事故に至る経緯と事故の状況'];
+                $wordcloud_data[] = $row['事故の要因'];
+                $wordcloud_data[] = $row['事故発生後の対策'];
             }
-            echo "<div class='text-center'>";
-            echo "<input type='submit' value='生成' class='btn btn-primary'>";
-            echo "<button type='button' onclick='history.back()' class='btn btn-secondary'>戻る</button>";
-            echo "</div>";
-            echo "</form>";
+
+            // ワードクラウド用データを保存
+            file_put_contents('wordcloud_data.txt', implode(' ', $wordcloud_data));
         } else {
             echo "<p>検索結果が見つかりませんでした。</p>";
         }
+        echo "<div class='text-center'>";
+        echo "<input type='submit' value='生成' class='btn btn-primary'>";
+        echo "<button type='button' onclick='history.back()' class='btn btn-secondary'>戻る</button>";
+        echo "</form>"; // 報告書生成用のフォームを閉じる
+        echo "</div>";
     }
 
     $conn->close();
